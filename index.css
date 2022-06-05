@@ -9,10 +9,10 @@
 }
 
 .post-profile-photo {
-    width: 46px; 
-    height: 46px; 
+    width: 50px; 
+    height: 50px; 
     position: relative; 
-    border-width: 2px !important;
+    border-width: 1px !important;
 }
 
 .btn-ig {
