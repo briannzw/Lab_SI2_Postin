@@ -1,4 +1,4 @@
-# Lab_SI2_Postin
+# Post.in
 
 ## General Info
 Repository UTS & UAS Labolatorium Sistem Informasi 2  
@@ -16,16 +16,16 @@ Asisten Labolatorium : Muhammad Ridho Harahap
 ## Screenshots
 * Halaman Login
 
-![alt text]()
+![alt text]("Screenshot Login Page")
 
 * Halaman Register
 
-![alt text]()
+![alt text]("Screenshot Register Page")
 
 * Halaman Utama
 
-![alt text]()
+![alt text]("Screenshot Homepage")
 
 * Halaman Post
 
-![alt text]()
+![alt text]("Screenshot Post Page")
