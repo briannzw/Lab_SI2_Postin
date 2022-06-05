@@ -16,16 +16,12 @@ Asisten Labolatorium : Muhammad Ridho Harahap
 ## Screenshots
 * Halaman Login
 
-![alt text]("Screenshot Login Page")
+![alt text](https://github.com/briannzw/Lab_SI2_Postin/blob/master/Screenshot/Screenshot%20Login.jpg "Screenshot Login Page")
 
 * Halaman Register
 
-![alt text]("Screenshot Register Page")
+![alt text](https://github.com/briannzw/Lab_SI2_Postin/blob/master/Screenshot/Screenshot%20Register.jpg "Screenshot Register Page")
 
 * Halaman Utama
 
-![alt text]("Screenshot Homepage")
-
-* Halaman Post
-
-![alt text]("Screenshot Post Page")
+![alt text](https://github.com/briannzw/Lab_SI2_Postin/blob/master/Screenshot/Screenshot%20Homepage.jpg "Screenshot Homepage")
