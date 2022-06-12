@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 12 Jun 2022 pada 18.25
+-- Waktu pembuatan: 12 Jun 2022 pada 19.06
 -- Versi server: 10.4.18-MariaDB
 -- Versi PHP: 8.0.3
 
@@ -41,9 +41,10 @@ CREATE TABLE `post` (
 
 INSERT INTO `post` (`id`, `user`, `image`, `caption`, `created_at`) VALUES
 ('1', 'user_01', 'http://picsum.photos/200/200', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut e', '2022-06-12 16:41:13'),
-('62a61255d5f929.21504992', 'aa', '', 'test', '2022-06-12 23:20:37'),
-('62a6127aef5dc6.95101977', 'aa', '', 'test', '2022-06-12 23:21:14'),
-('62a61326dff211.23229821', 'admin', '', 'I\'m admin', '2022-06-12 23:24:06');
+('62a61255d5f929.21504992', '', '', 'tes', '2022-06-12 23:20:37'),
+('62a61326dff211.23229821', 'admin', '', 'I\'m admin', '2022-06-12 23:24:06'),
+('62a61811b3c976.38269861', 'admin', '', 'alo', '2022-06-12 23:45:05'),
+('62a61ab054a0e7.81672608', 'admin', '', 'test123', '2022-06-12 23:56:16');
 
 -- --------------------------------------------------------
 
@@ -68,9 +69,9 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `name`, `email`, `username`, `password`, `avatar`, `admin`, `created_at`, `last_login`) VALUES
-('6118b2a943acc2.78631959', 'Administrator', 'admin@mail.com', 'admin', '$2y$10$KNFkU8Uyj/PPKm4GOs0nj.E.eXiof3Wjhku8wBGL6yZs4dOerpsEO', NULL, 1, '2021-08-14 23:22:33', '2022-06-12 11:23:51'),
+('6118b2a943acc2.78631959', 'Administrator', 'admin@mail.com', 'admin', '$2y$10$KNFkU8Uyj/PPKm4GOs0nj.E.eXiof3Wjhku8wBGL6yZs4dOerpsEO', NULL, 1, '2021-08-14 23:22:33', '2022-06-12 11:56:04'),
 ('62a5e8b1621f44.48183918', 'aa', 'aaa@aa.com', 'aaaa', '$2y$10$gCzYT2urBBwJ7Bom44/.juctWMAlYoiXCtCUxzOGkkMd6wVTx.YAC', NULL, 0, '2022-06-12 13:22:57', '2022-06-12 08:23:54'),
-('62a60b39d527a1.86801851', 'aa', 'aa@aa.com', 'aa', '$2y$10$cChlcdCuSfzNnl6nF0oIueMdzIsowJC4nfTwS3Ha5jFVNhhyzMYv6', NULL, 0, '2022-06-12 15:50:17', '2022-06-12 10:52:38');
+('62a61ad13669d8.07598377', 'aa', 'aa@aa.com', 'aa', '$2y$10$B2YA0JjNDihM4D3piKQGuegem.ujWgwqID0uvulxQsqXvT/3UEQF2', NULL, 0, '2022-06-12 16:56:49', '2022-06-12 11:56:51');
 
 --
 -- Indexes for dumped tables

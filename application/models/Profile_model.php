@@ -2,7 +2,7 @@
 
 class Profile_model extends CI_Model
 {
-    private $_table = 'user';
+    private $_table = 'user', $post_table = "post";
 
 	public function update_rules()
 	{
@@ -81,6 +81,11 @@ class Profile_model extends CI_Model
 
 	public function delete_profile($user_id){
 		if(!isset($user_id)) return;
+
+		$query = $this->db->get_where($this->_table, ['id' => $user_id]);
+		$result = $query->row();
+
+		$query = $this->db->delete($this->post_table, ['user' => $result->username]);
 
 		return $this->db->delete($this->_table, ['id' => $user_id]);
 	}

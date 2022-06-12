@@ -33,6 +33,15 @@ class Post_model extends CI_Model
 		return $query->result();
 	}
 
+	public function get_post($id){
+		if(!$id){
+			return;
+		}
+
+		$query = $this->db->get_where($this->_table, ['id' => $id]);
+		return $query->row();
+	}
+
 	public function insert($post)
 	{
 		if(!$post){
@@ -40,6 +49,24 @@ class Post_model extends CI_Model
 		}
 
 		return $this->db->insert($this->_table, $post);
+	}
+
+	public function update($post)
+	{
+		if(!$post){
+			return;
+		}
+
+		return $this->db->update($this->_table, $post, ['id' => $post['id']]);
+	}
+
+	public function delete($post_id)
+	{
+		if(!$post_id){
+			return;
+		}
+
+		return $this->db->delete($this->_table, ['id' => $post_id]);
 	}
 }
 

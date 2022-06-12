@@ -87,6 +87,7 @@
                                     </div>
                                     <div class="container d-flex justify-content-center">
                                         <a class="btn btnUpload">Ubah Foto Profil</a>
+                                        <a href="<?= site_url("posts/".$user_data->username) ?>" class="ms-2 btn btnUpload">Lihat Post Anda</a>
                                         <a href="<?= site_url("auth/logout") ?>" class="ms-2 btn btnUpload">Log Out</a>
                                         <a href="<?= site_url("profile/delete") ?>" class="ms-2 btn btnUpload">Delete Account</a>
                                     </div>
