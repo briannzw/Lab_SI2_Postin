@@ -54,6 +54,8 @@ $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
 $route['login'] = 'main_controller';
-$route['homepage'] = 'main_controller/homepage';
-$route['home'] = 'main_controller/homepage';
-$route['register'] = 'main_controller/registrasi';
+$route['register'] = 'main_controller/register';
+// $route['homepage'] = 'homepage';
+$route['home'] = 'homepage';
+
+$route['post/(:any)'] = 'homepage/show/$1';

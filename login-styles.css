@@ -90,8 +90,6 @@ ul { list-style: none; }
 .register,
 form { padding: 30px 20px; }
 
-.login-with-fb { padding: 30px 20px 20px 20px; }
-
 form .sr-only { display: none; }
 
 form input {
@@ -142,12 +140,25 @@ footer {
     margin: 0 auto 30px auto;
     max-width: 935px;
 }
-footer ul { margin-bottom: 20px; }
-footer ul li { margin: 0 10px 10px; } 
-footer ul li a { color: #385185; }
-footer .copyright { color: #808080; }
-footer ul li a,
 footer .copyright { 
+    color: #808080;
     font-weight: bold;
     text-align: center;
  }
+
+ .invalid {
+	border: 2px solid rgb(153, 16, 16);
+}
+
+.invalid::placeholder {
+	color: rgb(153, 16, 16);
+}
+
+.invalid-feedback:empty {
+	display: none;
+}
+.invalid-feedback {
+    display: block;
+	font-size: smaller;
+	color: rgb(153, 16, 16);
+}

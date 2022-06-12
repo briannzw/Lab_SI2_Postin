@@ -10,6 +10,23 @@ class Post extends CI_Controller {
 	public function add($id){
         echo 'Halaman Tambah Post'.'<br>';
 		echo 'id : '.$id.'<br>';
+
+		if($this->input->method() === 'post'){
+			$this->load->model('post_model');
+		}
+
+		// @TODO: validasi sebelum ke model
+
+		$post = [
+			'id' => uniqid('', true),
+			'user' => $this->input->post('user'),
+			'caption' => $this->input->post('caption'),
+		];
+
+		$post_result = $this->post_model->insert($post);
+		if($post_result){
+			// return $this->load->view('');
+		}
 	}
 
     public function edit($id){

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 
 <head>
     <!-- CSS only -->
@@ -19,9 +19,8 @@
                 <div class="row">
                     <div class="col-8">
                         <!-- START OF POSTS -->
-                        <?php $i = 0; ?>
                         <?php foreach ($posts as $post) : ?>
-                        <div class="d-flex flex-column mb-4" id="<?= "post-".$i ?>">
+                        <div class="d-flex flex-column mb-4">
                             <div class="card">
                                 <div class="card-header p-3">
                                     <div class="d-flex flex-row align-items-center">
@@ -30,9 +29,9 @@
                                             <img src="http://picsum.photos/200/200" alt="..."
                                                 style="transform: scale(1.5); width: 100%; position: absolute; left: 0;">
                                         </div>
-                                        <span class="font-weight-bold ms-2"><a href=<?= site_url('post/'.$post->user) ?>><?= $post->user ? html_escape($post->user) : "No User" ?></a></span>
+                                        <span class="font-weight-bold ms-2">User_01</span>
                                         <span class="position-absolute top-50% end-0" style="padding-right:25px">
-                                            <a href="" class="link-menu">
+                                            <a href="#" class="link-menu">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots" viewBox="0 0 16 16">
                                                 <path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"/>
                                             </svg>
@@ -42,18 +41,17 @@
                                 </div>
                                 <div class="card-body p-0">
                                     <div class="embed-responsive embed-responsive-1by1">
-                                        <img class="embed-responsive-item w-100" src="http://picsum.photos/1000/1000" /> <!-- IMAGE FUNCTION LATER -->
+                                        <img class="embed-responsive-item w-100" src="http://picsum.photos/1000/1000" />
                                     </div>
                                     </div>
 
                                     <div class="pl-3 pr-3 pb-2">
-                                        <strong class="d-block mt-2 ms-3"><?= $post->user ? html_escape($post->user) : "No User" ?></strong>
-                                        <p class="d-block mb-1 ms-3"><?= $post->caption ? html_escape($post->caption) : "No Caption" ?></p>
+                                        <strong class="d-block mt-2 ms-3">User_01</strong>
+                                        <p class="d-block mb-1 ms-3">Lil drone shot I got a while back but never posted.</p>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <?php $i++; ?>
                         <?php endforeach; ?>
                         <!-- END OF POSTS -->
                     </div>

@@ -9,14 +9,14 @@ class Main_Controller extends CI_Controller {
 	
 	public function index()
 	{
-		$this->load->view('login');
+		redirect("auth/login");
 	}
 
 	public function homepage(){
 		$this->load->view('homepage');
 	}
 	
-	public function registrasi(){
-		$this->load->view('registrasi');
+	public function register(){
+		redirect("auth/register");
 	}
 }
