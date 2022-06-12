@@ -5,28 +5,52 @@ class Post extends CI_Controller {
 	public function __construct()
 	{
 		parent:: __construct();
+        $this->load->model('auth_model');
+		if(!$this->auth_model->current_user()){
+			redirect('auth/login');
+		}
 	}
 
-	public function add($id){
-        echo 'Halaman Tambah Post'.'<br>';
-		echo 'id : '.$id.'<br>';
+	public function index(){
+		show_404();
+	}
 
-		if($this->input->method() === 'post'){
-			$this->load->model('post_model');
-		}
+	public function add(){
+        $this->load->model('auth_model');
+		$this->load->model('post_model');
+		
+        //Belum Login
+        if(!$this->auth_model->current_user()){
+			redirect('auth/login');
+        }
 
-		// @TODO: validasi sebelum ke model
+		$this->load->library('form_validation');
 
-		$post = [
-			'id' => uniqid('', true),
-			'user' => $this->input->post('user'),
-			'caption' => $this->input->post('caption'),
-		];
+        if($this->input->method() == 'post'){
+            $rules = $this->post_model->post_rules();
+            $this->form_validation->set_rules($rules);
 
-		$post_result = $this->post_model->insert($post);
-		if($post_result){
-			// return $this->load->view('');
-		}
+            if($this->form_validation->run() == FALSE){
+                return $this->load->view('add_post');
+            }
+
+			$post = [
+				'id' => uniqid('', true),
+				'user' => $this->auth_model->current_user()->username,
+				'caption' => $this->input->post('caption'),
+			];
+	
+			$post_result = $this->post_model->insert($post);
+			if($post_result){
+                $this->session->set_flashdata('message_post_error', 'Add Post Sukses!');
+				redirect('post/add');
+			}
+			else{
+                $this->session->set_flashdata('message_post_error', 'Add Post Gagal, '.$post_result);
+			}
+        }
+
+		$this->load->view('add_post');
 	}
 
     public function edit($id){

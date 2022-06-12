@@ -9,9 +9,9 @@
     <main class="flex align-items-center justify-content-center">
         <section id="auth" class="direction-column">
             <div class="panel login direction-column">
-                <h1 class="flex justify-content-center" style="font-family: 'Pacifico', cursive; font-size:45px">Post.in
+                <h1 class="flex justify-content-center" style="font-family: 'Pacifico', cursive; font-size:40px">Post.in
                 </h1>
-                <h2 class="flex justify-content-center" style="color:dodgerblue;">Sign Up</h2>
+                <h3 class="flex justify-content-center" style="color:dodgerblue;"><b>Sign Up</b></h3>
 
                 <?php if($this->session->flashdata('message_register_error')): ?>
                             <div class="invalid-feedback">

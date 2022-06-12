@@ -30,7 +30,7 @@
                                             <img src="http://picsum.photos/200/200" alt="..."
                                                 style="transform: scale(1.5); width: 100%; position: absolute; left: 0;">
                                         </div>
-                                        <span class="font-weight-bold ms-2"><a href=<?= site_url('post/'.$post->user) ?>><?= $post->user ? html_escape($post->user) : "No User" ?></a></span>
+                                        <span class="font-weight-bold ms-2"><a href=<?= site_url('posts/'.$post->user) ?>><?= $post->user ? html_escape($post->user) : "No User" ?></a></span>
                                         <span class="position-absolute top-50% end-0" style="padding-right:25px">
                                             <a href="" class="link-menu">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots" viewBox="0 0 16 16">

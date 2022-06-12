@@ -2,15 +2,18 @@
 
 class Post_model extends CI_Model
 {
-	public function __construct()
-	{
-		parent::__construct();
-		$this->load->model('auth_model');
-		if(!$this->auth_model->current_user()){
-			redirect('auth/login');
-		}
-	}
     private $_table = 'post';
+
+	public function post_rules()
+	{
+		return [
+			[
+				'field' => 'caption',
+				'label' => 'Caption',
+				'rules' => 'required|max_length[256]'
+			],
+		];
+	}
 
     public function get_posts($limit = null, $offset = null){
         if (!$limit && $offset) {
@@ -30,13 +33,13 @@ class Post_model extends CI_Model
 		return $query->result();
 	}
 
-	public function insert($user)
+	public function insert($post)
 	{
-		if(!$user){
+		if(!$post){
 			return;
 		}
 
-		return $this->db->insert($this->_table, $user);
+		return $this->db->insert($this->_table, $post);
 	}
 }
 

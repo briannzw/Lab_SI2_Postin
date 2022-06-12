@@ -57,5 +57,6 @@ $route['login'] = 'main_controller';
 $route['register'] = 'main_controller/register';
 // $route['homepage'] = 'homepage';
 $route['home'] = 'homepage';
+$route['profile'] = 'profile/view';
 
-$route['post/(:any)'] = 'homepage/show/$1';
+$route['posts/(:any)'] = 'homepage/show/$1';

@@ -1,19 +1,10 @@
 <!DOCTYPE html>
 <html lang="en"?>
     <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial scale = 1.0">
-        <meta http-equiv="X-UA Compatible" content="ie=edge">
-
         <!--CSS Only-->
-        <link rel="stylesheet" href="<?=base_url()?>css/bootstrap.min.css" />
+        <?php $this->load->view('_partials/head.php'); ?>
         <script src="<?=base_url()?>font.js"></script>
         <link rel="stylesheet" href="<?=base_url()?>index.css">
-        
-        <!--Font Style-->
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
 
         <!--Style-->
         <style>
@@ -54,6 +45,22 @@
             table td input{
                 width:250px;
             }
+            .invalid {
+                border: 2px solid rgb(153, 16, 16);
+            }
+
+            .invalid::placeholder {
+                color: rgb(153, 16, 16);
+            }
+
+            .invalid-feedback:empty {
+                display: none;
+            }
+            .invalid-feedback {
+                display: block;
+                font-size: smaller;
+                color: rgb(153, 16, 16);
+            }
         </style>
 
         <!--Title-->
@@ -61,48 +68,7 @@
     </head>
     <body>
         <!--Navbar-->
-        <div>
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <div class="container justify-content-center">
-                    <div class="d-flex flex-row justify-content-between align-items-center col-9">
-                        <a class="navbar-brand" href="#" style="font-family: 'Pacifico', cursive;">
-                            Post.in
-                        </a>
-                        <!-- Icons -->
-                        <div class="d-flex flex-row">
-                            <ul class="list-inline m-0">
-                                <li class="list-inline-item">
-                                    <a href="<?=base_url()?>homepage" class="link-menu">
-                                        <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-house-door-fill"
-                                            fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                                            <path
-                                                d="M6.5 10.995V14.5a.5.5 0 0 1-.5.5H2a.5.5 0 0 1-.5-.5v-7a.5.5 0 0 1 .146-.354l6-6a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 .146.354v7a.5.5 0 0 1-.5.5h-4a.5.5 0 0 1-.5-.5V11c0-.25-.25-.5-.5-.5H7c-.25 0-.5.25-.5.495z" />
-                                            <path fill-rule="evenodd"
-                                                d="M13 2.5V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z" />
-                                        </svg>
-                                    </a>
-                                </li>
-                                <li class="list-inline-item ml-2">
-                                    <a href="<?=base_url()?>post/add/1" class="link-menu">
-                                        <img src = "http://cdn.onlinewebfonts.com/svg/img_519811.png" style= "width:22px" class= "bi bi-inboxes">
-                                    </a>
-                                </li>
-    
-                                <li class="list-inline-item ml-2 align-middle">
-                                    <a href="<?=base_url()?>login" class="link-menu">
-                                        <div
-                                            class="rounded-circle overflow-hidden d-flex justify-content-center align-items-center border topbar-profile-photo">
-                                            <img src="http://picsum.photos/200/200" alt="..."
-                                                style="transform: scale(1.5); width: 100%; position: absolute; left: 0;">
-                                        </div>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </nav>
-        </div>
+        <?php $this->load->view('_partials/navbar.php'); ?>
         <!--End of Navbar-->
 
         <!--Container with margin-top-->
@@ -120,27 +86,42 @@
                                         <img src="http://picsum.photos/200/200" alt="images" class="picture">
                                     </div>
                                     <div class="container d-flex justify-content-center">
-                                        <button class="btnUpload">Ubah Foto Profil</button>
+                                        <a class="btn btnUpload">Ubah Foto Profil</a>
+                                        <a href="<?= site_url("auth/logout") ?>" class="ms-2 btn btnUpload">Log Out</a>
+                                        <a href="<?= site_url("profile/delete") ?>" class="ms-2 btn btnUpload">Delete Account</a>
                                     </div>
                                 </div>
                                 <div class="col" id="data_profile">
-                                    <form>
+
+                                <?php if($this->session->flashdata('message_update_profile_error')): ?>
+                                        <div class="invalid-feedback">
+                                                <?= $this->session->flashdata('message_update_profile_error') ?>
+                                        </div>
+                                <?php endif ?>
+
+                                    <form action="" method="post">
                                         <table>
                                             <th><h3>Data Profil</h3></th>
                                             <tr>
                                                 <td>
-                                                    <label for="nama"><b>Nama</b></label>
+                                                    <label for="username"><b>Username</b></label>
                                                 </td>
                                                 <td>
-                                                    <input id="nama" name="nama" type="text">
+                                                    <input name="username" type="text" value="<?= form_error('username') ? set_value('username') : $user_data->username ?>" class="<?= form_error('username') ? 'invalid' : '' ?>" />
+                                                <div class="invalid-feedback">
+                                                    <?= form_error('username') ?>
+                                                </div>
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td>
-                                                    <label for="username"><b>Nama Pengguna</b></label>
+                                                    <label for="name"><b>Nama Pengguna</b></label>
                                                 </td>
                                                 <td>
-                                                    <input id="username" name="username" type="text">
+                                                    <input name="name" type="text" value="<?= form_error('name') ? set_value('name') : $user_data->name ?>" class="<?= form_error('name') ? 'invalid' : '' ?>" />
+                                                <div class="invalid-feedback">
+                                                    <?= form_error('name') ?>
+                                                </div>
                                                 </td>
                                             </tr>
                                         </table>
@@ -152,7 +133,10 @@
                                                     <label for="email"><b>Email</b></label>
                                                 </td>
                                                 <td>
-                                                    <input id="email" name="email" type="text">
+                                                    <input name="email" type="text" value="<?= form_error('email') ? set_value('email') : $user_data->email ?>" class="<?= form_error('email') ? 'invalid' : '' ?>" />
+                                                <div class="invalid-feedback">
+                                                    <?= form_error('email') ?>
+                                                </div>
                                                 </td>
                                             </tr>
                                             <tr>
@@ -160,7 +144,10 @@
                                                     <label for="password1"><b>Password</b></label>
                                                 </td>
                                                 <td>
-                                                    <input for="password1" name="password1" type="password">
+                                                    <input name="password" type="password" placeholder="Password" value="<?= form_error('password') ? set_value('password') : "" ?>" class="<?= form_error('password') ? 'invalid' : '' ?>">
+                                                <div class="invalid-feedback">
+                                                    <?= form_error('password') ?>
+                                                </div>
                                                 </td>
                                             </tr>
                                             <tr>
@@ -168,12 +155,15 @@
                                                     <label for="passsword2"><b>Konfirmasi Password</b></label>
                                                 </td>
                                                 <td>
-                                                    <input id="password2" name="password2" type="password">
+                                                    <input name="confirm_password" type="password" placeholder="Confirm Password" value="<?= form_error('confirm_password') ? set_value('confirm_password') : "" ?>" class="<?= form_error('confirm_password') ? 'invalid' : '' ?>">
+                                                <div class="invalid-feedback">
+                                                    <?= form_error('confirm_password') ?>
+                                                </div>
                                                 </td>
                                             </tr>
                                         </table>
                                         <div class="container d-flex justify-content-center">
-                                            <button class="btnUpdate">Update Profil</button>
+                                            <button type="submit" class="btn btnUpdate">Update Profil</button>
                                         </div>
                                     </form>
                                 </div>
