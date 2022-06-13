@@ -110,8 +110,8 @@ class Profile extends CI_Controller {
         if($delete_data_result){
             $this->session->set_flashdata('message_login_error', 'Hapus Akun Berhasil.');
 
-			if($this->auth_model->current_user()->avatar != ""){
-				$this->delete_avatar();
+			if($data['user_data']->avatar != ""){
+				$this->delete_avatar($data['user_data']->id);
 			}
 
             redirect('login');
