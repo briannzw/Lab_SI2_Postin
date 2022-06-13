@@ -133,11 +133,11 @@
                                 <div class="col-5">
                                 <?php $img_path = base_url('upload/avatar/'); ?>
                                     <div class="container" id="profile_picture">
-                                        <img src="<?= $img_path ?><?=($avatar == "") ? "blank-avatar.png" : $avatar ?>" alt="images" class="picture">
+                                        <img src="<?= $img_path ?><?=((!isset($avatar)) ||($avatar == "")) ? "blank-avatar.png" : $avatar ?>" alt="images" class="picture">
                                     </div>
                                     <form action="" method="post" enctype="multipart/form-data">
                                         <input type="hidden" name="form-name" value="avatar">  
-                                        <input type="hidden" name="img-data" value="<?= $avatar ?>">
+                                        <input type="hidden" name="img-data" value="<?= isset($avatar) ? $avatar : "" ?>">
                                         <div class="container d-flex justify-content-center">
                                             <input type="file" name="image-data" id="image-data" accept="image/png, image/jpeg, image/jpg, image/gif">
                                         </div>
@@ -165,7 +165,7 @@
 
                                     <form action="" method="post">
                                         <input type="hidden" name="form-name" value="post">
-                                        <input type="hidden" name="image-data" value="<?= $avatar ?>">
+                                        <input type="hidden" name="image-data" value="<?= isset($avatar) ? $avatar : "" ?>">
                                         <table>
                                             <th><h3>Data Profil</h3></th>
                                             <tr>

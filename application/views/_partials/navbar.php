@@ -33,7 +33,7 @@
                                 <a href="<?=base_url()?>profile" class="link-menu">
                                     <div
                                         class="rounded-circle overflow-hidden d-flex justify-content-center align-items-center border topbar-profile-photo">
-                                        <img src="<?= base_url('upload/avatar/'); ?><?=($avatar == "") ? "blank-avatar.png" : $avatar ?>" alt="..."
+                                        <img src="<?= base_url('upload/avatar/'); ?><?= ((!isset($avatar)) || ($avatar == "")) ? "blank-avatar.png" : $avatar ?>" alt="..."
                                             style="transform: scale(1.5); width: 100%; position: absolute; left: 0;">
                                     </div>
                                 </a>

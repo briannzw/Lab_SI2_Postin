@@ -125,11 +125,11 @@
                             <div class="col-5">
                                 <?php $img_path = base_url('upload/post/'); ?>
                                 <div class="container" id="profile_picture">
-                                    <img src="<?= $img_path ?><?=($image == "") ? "white-image.png" : $image ?>" alt="images" class="picture">
+                                    <img src="<?= $img_path ?><?= ((!isset($image)) || ($image == "")) ? "white-image.png" : $image ?>" alt="images" class="picture">
                                 </div>
                                 <form action="" method="post" enctype="multipart/form-data">
                                     <input type="hidden" name="form-name" value="img">  
-                                    <input type="hidden" name="img-data" value="<?= $image ?>">
+                                    <input type="hidden" name="img-data" value="<?= isset($image) ? $image : "" ?>">
                                     <div class="container d-flex justify-content-center">
                                         <input type="file" name="image-data" id="image-data" accept="image/png, image/jpeg, image/jpg, image/gif">
                                     </div>
@@ -148,7 +148,7 @@
 
                                 <form action="" method="post">
                                     <input type="hidden" name="form-name" value="post">
-                                    <input type="hidden" name="image-data" value="<?= $image ?>">
+                                    <input type="hidden" name="image-data" value="<?= isset($image) ? $image : "" ?>">
                                     <table>
                                         <th>
                                             <h3>Modify Post</h3>

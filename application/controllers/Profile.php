@@ -81,13 +81,13 @@ class Profile extends CI_Controller {
 					$this->load->view('profile', $data);
 				}
 
+				if($this->input->post("img-data") != ""){
+					$this->delete_avatar($this->input->post('img-data'));
+				}
+
 				$image_data = $this->upload_avatar('image-data');
 				if($image_data){
 					$data['avatar'] = $image_data['file_name'];
-
-					if($this->input->post("img-data") != ""){
-						$this->delete_avatar();
-					}
 				}
 			}
 		}
@@ -150,11 +150,8 @@ class Profile extends CI_Controller {
 		return null;
 	}
 
-	public function delete_avatar()
+	public function delete_avatar($user_id)
 	{	
-		$current_user = $this->auth_model->current_user();
-
-		$file_name = str_replace('.', '', $current_user->id);
-		array_map('unlink', glob(FCPATH."upload/avatar/$file_name.*"));
+		unlink(FCPATH."upload/avatar/".$user_id);
 	}
 }
