@@ -29,7 +29,7 @@
                                             <img src="<?= base_url('upload/avatar/'); ?><?=($post->avatar == "") ? "blank-avatar.png" : $post->avatar ?>" alt="..."
                                                 style="transform: scale(1.5); width: 100%; position: absolute; left: 0;">
                                         </div>
-                                        <span class="font-weight-bold ms-2">User_01</span>
+                                        <span class="font-weight-bold ms-2"><?= $post->user ? html_escape($post->user) : "No User" ?></span>
                                         
                                         <?php if(($this->auth_model->current_user()->username == $post->user) || ($this->auth_model->current_user()->admin == 1)) : ?>
                                         <span class="position-absolute top-50% end-0" style="padding-right:25px">
@@ -50,8 +50,8 @@
                                     </div>
 
                                     <div class="pl-3 pr-3 pb-2">
-                                        <strong class="d-block mt-2 ms-3">User_01</strong>
-                                        <p class="d-block mb-1 ms-3">Lil drone shot I got a while back but never posted.</p>
+                                        <strong class="d-block mt-2 ms-3"><?= $post->user ? html_escape($post->user) : "No User" ?></strong>
+                                        <p class="d-block mb-1 ms-3"><?= $post->caption ? html_escape($post->caption) : "No Caption" ?></p>
                                     </div>
                                 </div>
                             </div>
