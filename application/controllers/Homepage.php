@@ -37,6 +37,13 @@ class Homepage extends CI_Controller {
   
       // ambil post dengan user yang diberikan
       $data['posts'] = $this->post_model->find_by_user($user);
+      $data['avatar'] = $this->auth_model->current_user()->avatar;
+
+      foreach($data['posts'] as $post){
+        $user = ($this->auth_model->get_user($post->user));
+        if(!$user) continue;
+        $post->avatar = $user->avatar;
+      }
   
       // jika post tidak ditemukan di database tampilkan 404
       if (!$data['posts']) {
