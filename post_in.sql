@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 13 Jun 2022 pada 12.55
+-- Waktu pembuatan: 13 Jun 2022 pada 13.36
 -- Versi server: 10.4.18-MariaDB
 -- Versi PHP: 8.0.3
 
@@ -73,7 +73,7 @@ CREATE TABLE `user` (
 INSERT INTO `user` (`id`, `name`, `email`, `username`, `password`, `avatar`, `admin`, `created_at`, `last_login`) VALUES
 ('6118b2a943acc2.78631959', 'Administrator', 'admin@mail.com', 'admin', '$2y$10$KNFkU8Uyj/PPKm4GOs0nj.E.eXiof3Wjhku8wBGL6yZs4dOerpsEO', '6118b2a943acc278631959.png', 1, '2021-08-14 23:22:33', '2022-06-13 05:48:42'),
 ('62a5e8b1621f44.48183918', 'aa', 'aaa@aa.com', 'aaaa', '$2y$10$gCzYT2urBBwJ7Bom44/.juctWMAlYoiXCtCUxzOGkkMd6wVTx.YAC', '', 0, '2022-06-12 13:22:57', '2022-06-12 08:23:54'),
-('62a6ef1de5fc78.16513731', 'aa', 'aa@aa.com', 'aa', '$2y$10$7pAGpau0wUvfTTQKEyvULuxHQ7V6TL/6pXZErCNvR/bTkiIpY2hQq', '', 0, '2022-06-13 08:02:37', '2022-06-13 03:02:40');
+('62a6ef1de5fc78.16513731', 'aa', 'aa@aa.com', 'aa', '$2y$10$7pAGpau0wUvfTTQKEyvULuxHQ7V6TL/6pXZErCNvR/bTkiIpY2hQq', '62a6ef1de5fc7816513731.jpg', 0, '2022-06-13 08:02:37', '2022-06-13 06:18:03');
 
 --
 -- Indexes for dumped tables
