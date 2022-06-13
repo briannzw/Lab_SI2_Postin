@@ -23,21 +23,40 @@
             object-fit: fill;
         }
 
-        .btnUpload,
-        .btnUpdate {
-            padding: 5px 20px;
-            margin-top: 30px;
+        #btnUpload {
+            padding: 5px 30px;
+            margin-top: 20px;
+            margin-bottom: 20px;
             background-color: transparent;
             border-radius: 30px;
+            border: 1px solid black;
+        }
+        
+        #btnUpload:link, #btnUpload:active, #btnUpload:visited{
+            text-decoration: none;
+            color:black;
+        }
+
+        #btnUpload:hover, #btnAdd:hover{
+            background-color: dodgerblue;
+            color:white;
+            border: 1px solid white;
+        }
+
+        #btnAdd{
+            border-radius: 30px;
+            border: 1px solid black;
+            background-color:transparent;
+            margin:5px 15px;
+            padding:5px 30px; 
         }
 
         #data_profile {
             margin-top: 30px;
         }
 
-        table tr,
-        table td {
-            padding: 15px 15px;
+        table tr, table td {
+            padding: 5px 15px;
         }
 
         table td label {
@@ -47,6 +66,11 @@
 
         table td input {
             width: 250px;
+        }
+        #caption{
+            width: 500px;
+            height: 200px;
+            max-height: 200px;
         }
             .invalid {
                 border: 2px solid rgb(153, 16, 16);
@@ -86,13 +110,20 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-5">
+                                <?php $img_path = base_url('upload/post/'); ?>
                                 <div class="container" id="profile_picture">
-                                    <!-- https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_640.png -->
-                                    <img src="http://picsum.photos/200/200" alt="images" class="picture">
+                                    <img src="<?= $img_path ?><?=($img == "") ? "white-image.png" : $img ?>" alt="images" class="picture">
                                 </div>
-                                <div class="container d-flex justify-content-center">
-                                    <a class="btn btnUpload">Pilih foto dari galeri</a>
-                                </div>
+                                <form action="" method="post" enctype="multipart/form-data">
+                                    <input type="hidden" name="form-name" value="img">  
+                                    <input type="hidden" name="img-data" value="<?= $img ?>">
+                                    <div class="container d-flex justify-content-center">
+                                        <input type="file" name="image-data" id="image-data" accept="image/png, image/jpeg, image/jpg, image/gif">
+                                    </div>
+                                    <div class="mt-3 container d-flex justify-content-center">
+                                        <button type="submit" class="btn btnUpload">Upload Image</button>
+                                    </div>
+                                </form>
                             </div>
                             <div class="col" id="data_profile">
 
@@ -103,16 +134,20 @@
                                 <?php endif ?>
 
                                 <form action="" method="post">
+                                    <input type="hidden" name="form-name" value="post">
+                                    <input type="hidden" name="image-data" value="<?= $img ?>">
                                     <table>
                                         <th>
                                             <h3>New Post</h3>
                                         </th>
                                         <tr>
                                             <td>
-                                                <label for="caption"><b>Caption</b></label>
+                                                <label for="caption"><b>Caption :</b></label>
                                             </td>
+                                        </tr>
+                                        <tr>
                                             <td>
-                                                <input name="caption" type="text" class="<?= form_error('caption') ? 'invalid' : '' ?>"/>
+                                                <textarea name="caption" id="caption" class="<?= form_error('caption') ? 'invalid' : '' ?>"></textarea>
                                                 <div class="invalid-feedback">
                                                     <?= form_error('caption') ?>
                                                 </div>
@@ -121,7 +156,7 @@
                                     </table>
                                     <hr>
                                     <div class="container d-flex justify-content-center">
-                                        <button class="btn btnUpdate" type="submit">Add Post</button>
+                                        <button class="btnAdd" id="btnAdd" type="submit">Add Post</button>
                                     </div>
                                 </form>
                             </div>

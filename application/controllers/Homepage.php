@@ -14,7 +14,14 @@ class Homepage extends CI_Controller {
 	
 	public function index()
 	{
+        $this->load->model('auth_model');
         $data['posts'] = $this->post_model->get_posts();
+        foreach($data['posts'] as $post){
+          $user = ($this->auth_model->get_user($post->user));
+          if(!$user) continue;
+          $post->avatar = $user->avatar;
+        }
+        $data['avatar'] = $this->auth_model->current_user()->avatar;
 
         if(count($data['posts']) > 0){
             $this->load->view('homepage', $data);

@@ -27,7 +27,7 @@
                                     <div class="d-flex flex-row align-items-center">
                                         <div
                                             class="rounded-circle overflow-hidden d-flex justify-content-center align-items-center border post-profile-photo mr-3">
-                                            <img src="http://picsum.photos/200/200" alt="..."
+                                            <img src="<?= base_url('upload/avatar/'); ?><?=($post->avatar == "") ? "blank-avatar.png" : $post->avatar ?>" alt="..."
                                                 style="transform: scale(1.5); width: 100%; position: absolute; left: 0;">
                                         </div>
                                         <span class="font-weight-bold ms-2"><a href=<?= site_url('posts/'.$post->user) ?>><?= $post->user ? html_escape($post->user) : "No User" ?></a></span>
@@ -46,7 +46,7 @@
                                 </div>
                                 <div class="card-body p-0">
                                     <div class="embed-responsive embed-responsive-1by1">
-                                        <img class="embed-responsive-item w-100" src="http://picsum.photos/1000/1000" /> <!-- IMAGE FUNCTION LATER -->
+                                        <img class="embed-responsive-item w-100" src="<?=base_url('upload/post/')?><?= (!$post->image) ? "white-image.png" : $post->image ?>" />
                                     </div>
                                     </div>
 

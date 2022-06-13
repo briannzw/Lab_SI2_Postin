@@ -3,7 +3,7 @@
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container justify-content-center">
                 <div class="d-flex flex-row justify-content-between align-items-center col-9">
-                    <a class="navbar-brand" href="#" style="font-family: 'Pacifico', cursive;">
+                    <a class="navbar-brand" href="<?= base_url() ?>" style="font-family: 'Pacifico', cursive;">
                         Post.in
                     </a>
                     <!-- Icons -->
@@ -33,7 +33,7 @@
                                 <a href="<?=base_url()?>profile" class="link-menu">
                                     <div
                                         class="rounded-circle overflow-hidden d-flex justify-content-center align-items-center border topbar-profile-photo">
-                                        <img src="http://picsum.photos/200/200" alt="..."
+                                        <img src="<?= base_url('upload/avatar/'); ?><?=($avatar == "") ? "blank-avatar.png" : $avatar ?>" alt="..."
                                             style="transform: scale(1.5); width: 100%; position: absolute; left: 0;">
                                     </div>
                                 </a>

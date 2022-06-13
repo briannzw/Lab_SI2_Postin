@@ -23,11 +23,60 @@
                 height: 100%;
                 object-fit: fill;
             }
-            .btnUpload,.btnUpdate{
-                padding: 5px 20px;
+            #btnEdit1{
+                border:2px solid black;
+                padding:5px 35px;
+            }
+            #btnEdit2{
+                border:2px solid black;
+                padding:5px 37px;
+            }
+            #btnEdit3{
+                border:2px solid black;
+                padding:5px 64px;
+            }
+            #btnEdit4{
+                border:2px solid black;
+                padding:5px 39px;
+            }
+
+            #btnEdit1, #btnEdit2, #btnEdit3, #btnEdit4{
+                margin: 10px 0px;
+                border-radius: 30px;
+            }
+            
+            #btnEdit1:link, #btnEdit2:link, #btnEdit3:link, #btnEdit1:visited, #btnEdit2:visited, #btnEdit3:visited, #btnEdit1:active, #btnEdit2:active, #btnEdit3:active{
+                text-decoration: none;
+                color: black;
+            }
+            #btnEdit4:link, #btnEdit4:visited, #btnEdit4:active{
+                color:red;
+                text-decoration: none;
+            }
+            #btnEdit1:hover, #btnEdit2:hover, #btnEdit3:hover{
+                background-color: dodgerblue;
+                border: 2px solid white;
+                color:white;
+            }
+
+            #btnEdit4:hover{
+                background-color: red;
+                border: 2px solid white;
+                color:white;
+            }
+
+            .btnUpdate{
+                padding: 5px 30px;
                 margin-top: 30px;
+                margin-bottom: 30px;
                 background-color: transparent;
                 border-radius: 30px;
+            }
+
+            .btnUpdate:hover{
+                background-color: dodgerblue;
+                border:1px solid white;
+                color:white;
             }
 
             #data_profile{
@@ -82,14 +131,28 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-5">
+                                <?php $img_path = base_url('upload/avatar/'); ?>
                                     <div class="container" id="profile_picture">
-                                        <img src="http://picsum.photos/200/200" alt="images" class="picture">
+                                        <img src="<?= $img_path ?><?=($avatar == "") ? "blank-avatar.png" : $avatar ?>" alt="images" class="picture">
+                                    </div>
+                                    <form action="" method="post" enctype="multipart/form-data">
+                                        <input type="hidden" name="form-name" value="avatar">  
+                                        <input type="hidden" name="img-data" value="<?= $avatar ?>">
+                                        <div class="container d-flex justify-content-center">
+                                            <input type="file" name="image-data" id="image-data" accept="image/png, image/jpeg, image/jpg, image/gif">
+                                        </div>
+                                        <div class="container d-flex justify-content-center">
+                                            <button type="submit" id="btnEdit1">Ubah Foto Profil</button>
+                                        </div>
+                                    </form>
+                                    <div class="container d-flex justify-content-center">
+                                        <a href="<?= site_url("posts/".$user_data->username)?>" id="btnEdit2">Lihat Post Anda</a>
                                     </div>
                                     <div class="container d-flex justify-content-center">
-                                        <a class="btn btnUpload">Ubah Foto Profil</a>
-                                        <a href="<?= site_url("posts/".$user_data->username) ?>" class="ms-2 btn btnUpload">Lihat Post Anda</a>
-                                        <a href="<?= site_url("auth/logout") ?>" class="ms-2 btn btnUpload">Log Out</a>
-                                        <a href="<?= site_url("profile/delete") ?>" class="ms-2 btn btnUpload">Delete Account</a>
+                                        <a href="<?= site_url("auth/logout") ?>" id="btnEdit3">Log Out</a>
+                                    </div>
+                                    <div class="container d-flex justify-content-center">
+                                        <a href="<?= site_url("profile/delete") ?>" id="btnEdit4">Delete Account</a>
                                     </div>
                                 </div>
                                 <div class="col" id="data_profile">
@@ -101,6 +164,8 @@
                                 <?php endif ?>
 
                                     <form action="" method="post">
+                                        <input type="hidden" name="form-name" value="post">
+                                        <input type="hidden" name="image-data" value="<?= $avatar ?>">
                                         <table>
                                             <th><h3>Data Profil</h3></th>
                                             <tr>
@@ -164,7 +229,7 @@
                                             </tr>
                                         </table>
                                         <div class="container d-flex justify-content-center">
-                                            <button type="submit" class="btn btnUpdate">Update Profil</button>
+                                            <button type="submit" class="btnUpdate">Update Profil</button>
                                         </div>
                                     </form>
                                 </div>

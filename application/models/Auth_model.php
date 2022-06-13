@@ -86,6 +86,11 @@ class Auth_model extends CI_Model
 		return $query->row();
 	}
 
+	public function get_user($username){
+		$query = $this->db->get_where($this->_table, ['username' => $username]);
+		return $query->row();
+	}
+
 	public function logout()
 	{
 		$this->session->unset_userdata(self::SESSION_KEY);
