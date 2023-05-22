@@ -1,7 +1,7 @@
 # Post.in
 
 ## General Info
-Repository UTS & UAS Labolatorium Sistem Informasi 2  
+Repository UTS & UAS Laboratorium Sistem Informasi 2  
 
 Nama Project : Post.in  
 Anggota :  
